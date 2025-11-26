@@ -1,12 +1,12 @@
 public class PengunjungCafe12 {
 
     static void daftarPengunjung(String... namaPengunjung) {
-        System.out.println("Daftar Nama Pengunjung:");
-        for (int i = 0; i < namaPengunjung.length; i++) {
-            System.out.println("- " + namaPengunjung[i]);
-        }
-        System.out.println();
+    System.out.println("Daftar Nama Pengunjung:");
+    for (String nama : namaPengunjung) {
+        System.out.println("- " + nama);
     }
+    System.out.println();
+}
 
     public static void main(String[] args) {
         daftarPengunjung("Ali", "Budi", "Citra");
