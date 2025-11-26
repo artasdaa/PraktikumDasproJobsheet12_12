@@ -10,6 +10,7 @@ public class Kafe12 {
         System.out.println("==============================");
         System.out.println("Silakan pilih menu yang Anda inginkan.");
     }
+    
     public static void main(String[] args) {
         Menu();
     }
