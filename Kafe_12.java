@@ -4,7 +4,7 @@ public class Kafe_12 {
 
         if (isMember) {
             System.out.println("Anda adalah member, dapatkan diskon 10% untuk setiap pembelian!");
-        }
+        }       
         if (kodePromo.equals("DISKON50")) {
             System.out.println("Kode promo valid: Anda mendapatkan diskon 50%!");
         } else if (kodePromo.equals("DISKON30")) {
