@@ -1,11 +1,24 @@
 import java.util.Scanner;
 
 public class KafePercobaan3_12 {
-    public static int hitungTotalHargaNoAbsen(int pilihanMenu, int banyakItem) {
+
+    public static int hitungTotalHargaNoAbsen(int pilihanMenu, int banyakItem, String kodePromo) {
         int[] hargaItems = {15000, 20000, 22000, 12000, 10000, 18000};
 
-        int hargaTotal = hargaItems[pilihanMenu - 1] * banyakItem;
-        return hargaTotal;
+        int totalHarga = hargaItems[pilihanMenu - 1] * banyakItem;
+        int diskon = 0;
+
+        if (kodePromo.equalsIgnoreCase("DISKON50")) {
+            diskon = totalHarga / 2;
+            System.out.println("Promo DISKON50! Anda mendapat potongan: Rp " + diskon);
+        } else if (kodePromo.equalsIgnoreCase("DISKON30")) {
+            diskon = (int)(totalHarga * 0.3);
+            System.out.println("Promo DISKON30! Anda mendapat potongan: Rp " + diskon);
+        } else if (!kodePromo.equalsIgnoreCase("NONE")) {
+            System.out.println("Kode promo tidak valid! Tidak ada diskon.");
+        }
+
+        return totalHarga - diskon;
     }
 
     public static void menu() {
@@ -29,8 +42,12 @@ public class KafePercobaan3_12 {
 
         System.out.print("Masukkan jumlah item yang ingin dipesan: ");
         int banyakItem = sc.nextInt();
+        sc.nextLine(); // membersihkan buffer
 
-        int totalBayar = hitungTotalHargaNoAbsen(pilihanMenu, banyakItem);
+        System.out.print("Masukkan kode promo (DISKON50 / DISKON30 / NONE): ");
+        String kodePromo = sc.nextLine();
+
+        int totalBayar = hitungTotalHargaNoAbsen(pilihanMenu, banyakItem, kodePromo);
 
         System.out.println("Total harga untuk pesanan Anda: Rp " + totalBayar);
     }
